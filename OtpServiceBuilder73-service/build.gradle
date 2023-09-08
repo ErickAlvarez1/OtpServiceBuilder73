@@ -1,0 +1,11 @@
+dependencies {
+	compile project(":modules:OtpServiceBuilder73:OtpServiceBuilder73-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+}
+
+buildService {
+	apiDir = "../OtpServiceBuilder73-api/src/main/java"
+}
+
+group = "com.tokio.otp"

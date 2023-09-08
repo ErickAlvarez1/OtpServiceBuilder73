@@ -1,0 +1,10 @@
+Bundle-Name: OtpServiceBuilder73-api
+Bundle-SymbolicName: com.tokio.otp.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.tokio.otp.exception,\
+	com.tokio.otp.model,\
+	com.tokio.otp.service,\
+	com.tokio.otp.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../OtpServiceBuilder73-service/service.xml

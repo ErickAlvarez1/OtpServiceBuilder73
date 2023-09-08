@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.3.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_3_0.dtd">
+
+<service-builder  package-path="com.tokio.otp">
+	<namespace>OTP</namespace>
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+	<entity name="TwoFactor" remote-service="false"
+		local-service="true" cache-enabled="false">
+
+		<!-- PK fields -->
+
+		<column name="twoFactorId" primary="true" type="long"></column>
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long"></column>
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+        <column name="verificationType" type="String"></column>
+        <column name="verificationData" type="String"></column>
+        <column name="expirationDate" type="Date"></column>
+        <column name="used" type="boolean"></column>
+        <column name="disabled" type="boolean"></column>
+        <finder name="UserIdAndCompanyId" return-type="TwoFactor">
+			<finder-column name="userId"/>
+			<finder-column name="companyId"/>
+		</finder>
+	</entity>
+	<entity name="TwoFactorConfigs" local-service="true"
+		remote-service="false" cache-enabled="false">
+
+		<!-- PK fields -->
+
+		<column name="twoFactorConfigsId" primary="true" type="long"></column>
+
+		<!-- Group instance -->
+        <column name="configName" type="String"></column>
+        <column name="configValue" type="String"></column>
+        <column name="configStatus" type="boolean"></column>
+
+		<column name="groupId" type="long"></column>
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long"></column>
+		<column name="modifiedDate" type="Date"></column>
+		<finder name="ConfigName" return-type="TwoFactorConfigs">
+            <finder-column name="configName"></finder-column>
+            <finder-column name="companyId"></finder-column>
+        </finder>
+	</entity>
+	<entity name="DebugEMails" local-service="true"
+		remote-service="false" cache-enabled="false">
+
+
+		<!-- PK fields -->
+
+		<column name="debugEMailsId" primary="true" type="long"></column>
+		<column name="email" type="String"></column>
+
+		<!-- Group instance -->
+
+		<!-- Audit fields -->
+        <finder name="Email" return-type="DebugEMails">
+            <finder-column name="email"></finder-column>
+        </finder>
+	</entity>
+</service-builder>

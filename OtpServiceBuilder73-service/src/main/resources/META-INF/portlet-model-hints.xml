@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.tokio.otp.model.DebugEMails">
+		<field name="debugEMailsId" type="long" />
+		<field name="email" type="String" />
+	</model>
+	<model name="com.tokio.otp.model.TwoFactor">
+		<field name="twoFactorId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="verificationType" type="String" />
+		<field name="verificationData" type="String" />
+		<field name="expirationDate" type="Date" />
+		<field name="used" type="boolean" />
+		<field name="disabled" type="boolean" />
+	</model>
+	<model name="com.tokio.otp.model.TwoFactorConfigs">
+		<field name="twoFactorConfigsId" type="long" />
+		<field name="configName" type="String" />
+		<field name="configValue" type="String" />
+		<field name="configStatus" type="boolean" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+</model-hints>
